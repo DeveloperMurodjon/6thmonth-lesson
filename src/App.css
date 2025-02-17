@@ -1,0 +1,12 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+/* tailwindcss documentidan olindi */
+input {
+  @apply border-[1px] border-solid border-gray-300;
+}
+@theme {
+  --color-regal-blue: #5ca5a5;
+}
+::placeholder {
+  @apply p-1 font-bold;
+}
