@@ -14,8 +14,9 @@ function App() {
   const [profession, setProfession] = useState([]);
 
   useEffect(() => {
-    const savedUsers = JSON.parse(localStorage.getItem("users") || "[]");
-    setUsers(savedUsers);
+    const savedUsers = localStorage.getItem("users");
+    const parsedUsers = savedUsers ? JSON.parse(savedUsers) : [];
+    setUsers(parsedUsers);
   }, []);
 
   function handleSave(event) {
@@ -47,6 +48,8 @@ function App() {
     setWorkType("Part Time");
     setTime("5h a day");
     setLocation("remote");
+    setState([]);
+    setProfession([]);
   }
 
   function handleSelectState(event) {
@@ -83,13 +86,13 @@ function App() {
         <img src={NavImg} alt="navigation bar" />
       </nav>
       <ThemeSwitcher />
-      {/* Form  */}
-      <div className="gap-y-6  bg-white dark:bg-gray-900 items-center mx-auto p-3 rounded-md max-w-[600px] shadow-2xl flex flex-col">
+      {/* Form */}
+      <div className="gap-y-6 bg-white dark:bg-gray-900 items-center mx-auto p-3 rounded-md max-w-[600px] shadow-2xl flex flex-col">
         <h1 className="font-bold text-2xl mb-3 text-gray-900 dark:text-white">
           Vakansiya ma'lumotlarini kiriting
         </h1>
         <form className="flex items-start gap-40 mx-auto max-w-[600px]">
-          {/* left part*/}
+          {/* left part */}
           <div className="left-part flex flex-col mx-auto justify-between gap-2">
             <div className="flex flex-col">
               <label className="text-gray-900 dark:text-white">
