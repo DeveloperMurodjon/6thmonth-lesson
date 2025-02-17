@@ -14,7 +14,7 @@ function App() {
   const [profession, setProfession] = useState([]);
 
   useEffect(() => {
-    const savedUsers = JSON.parse(localStorage.getItem("users"));
+    const savedUsers = JSON.parse(localStorage.getItem("users") || []);
     setUsers(savedUsers);
   }, []);
 
@@ -84,7 +84,7 @@ function App() {
       </nav>
       <ThemeSwitcher />
       {/* Form  */}
-      <div className="gap-y-6 mt-2 bg-white dark:bg-gray-900 items-center mx-auto p-3 rounded-md max-w-[600px] shadow-2xl flex flex-col">
+      <div className="gap-y-6  bg-white dark:bg-gray-900 items-center mx-auto p-3 rounded-md max-w-[600px] shadow-2xl flex flex-col">
         <h1 className="font-bold text-2xl mb-3 text-gray-900 dark:text-white">
           Vakansiya ma'lumotlarini kiriting
         </h1>
