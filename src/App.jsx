@@ -14,7 +14,7 @@ function App() {
   const [profession, setProfession] = useState([]);
 
   useEffect(() => {
-    const savedUsers = JSON.parse(localStorage.getItem("users") || []);
+    const savedUsers = JSON.parse(localStorage.getItem("users") || "[]");
     setUsers(savedUsers);
   }, []);
 
